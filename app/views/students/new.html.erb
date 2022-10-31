@@ -1,0 +1,39 @@
+<h1>Student Registration</h1>
+
+<%= form_for @student do |f| %>
+<div>
+    <%= f.label :name , 'Name' %>
+    <%= f.text_field :name %><br /><br />
+</div>
+
+<div>
+    <%= f.label :dob, "DOB" %>
+    <%= f.date_field :dob %><br /><br />
+</div>
+<div>
+    <%= f.label :gender, 'gender: ' %>
+    <%= f.label :Male %>
+    <%= f.radio_button :gender, 'Male' %>
+    <%= f.label :Female %>
+    <%= f.radio_button :gender, 'Female' %> <br /><br />
+</div>
+<div>
+   <%@lang = 'english','hindi'%>
+   <%@lang.each do |lang|%>
+   <%= f.check_box :language, {multiple: true}, lang, false %>
+   <%=lang%>
+   <%end%>
+</div>
+<div>
+  <%= f.label :city, 'City:  ' %>
+  <%= f.select :city, [['select-city','select-city'],['Indore','indore'],['Bhopal','bhopal'],['Dewas','dewas']] %>
+  <br /> <br />
+
+</div>
+<div>
+    <%= f.submit %>
+</div>  
+
+
+<% end %>
+
